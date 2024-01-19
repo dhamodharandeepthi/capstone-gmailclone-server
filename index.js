@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 // app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use("/", routes);
+
 
 app.use(express.static(path.join(__dirname, "../client/dist")));
 
@@ -21,6 +21,8 @@ app.get("*", function (_, res) {
     }
   );
 });
+
+app.use("/", routes);
 
 // Mongodb connection
 console.log("connecting to mongodb...");
