@@ -15,6 +15,10 @@ app.use(express.json());
 
 app.use("/", routes);
 
+app.get("*", (req, res) => {
+  res.status(200).json({ message: "welcome to gmailclone app" });
+});
+
 // Mongodb connection
 console.log("connecting to mongodb...");
 mongoose
